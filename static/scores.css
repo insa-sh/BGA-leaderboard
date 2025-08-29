@@ -1,52 +1,78 @@
 body {
-  background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
-  background-size: cover;
-  min-height: 100vh;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  margin: 0;
-  padding: 40px;
+    background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
 }
 
 h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
-  letter-spacing: 2px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
 }
 
 table {
-  margin: 0 auto;
-  border-collapse: collapse;
-  width: 80%;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-th, td {
-  padding: 16px 12px;
-  text-align: center;
+th,
+td {
+    padding: 16px 12px;
+    text-align: center;
 }
 
 th {
-  background: #43c6ac;
-  color: #fff;
-  font-size: 1.1em;
-  letter-spacing: 1px;
+    background: #43c6ac;
+    color: #fff;
+    font-size: 1.1em;
+    letter-spacing: 1px;
 }
 
+tbody tr:first-child {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+}
+
+tbody tr:nth-child(2) {
+    background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 50%, #c0c0c0 100%);
+}
+
+tbody tr:nth-child(3) {
+    background: linear-gradient(45deg, #8b4513 0%, #cd7f32 30%, #b8860b 70%, #8b4513 100%);
+}
+
+tbody tr:nth-child(1), tbody tr:nth-child(2), tbody tr:nth-child(3) {
+    td:first-child {
+        -webkit-text-stroke: 4px #fff;
+        /* contour doré */
+        font-weight: 900;
+        font-size: 30px;
+
+        paint-order: stroke fill;
+
+    }
+}
+
+
 tr:nth-child(even) {
-  background: #f2f2f2;
+    background: #f2f2f2;
 }
 
 tr:hover {
-  background: #e0f7fa;
-  transition: background 0.2s;
+    background: #e0f7fa;
+    transition: background 0.2s;
 }
 
 td:first-child {
-  font-weight: bold;
-  color: #43c6ac;
-  font-size: 1.2em;
+    font-weight: bold;
+    color: #43c6ac;
+    font-size: 1.2em;
 }
