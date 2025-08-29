@@ -38,20 +38,21 @@ th {
 }
 
 tbody tr:first-child {
-    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+    /* background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%); */
 }
 
 tbody tr:nth-child(2) {
-    background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 50%, #c0c0c0 100%);
+    /* background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 50%, #c0c0c0 100%); */
 }
 
 tbody tr:nth-child(3) {
-    background: linear-gradient(45deg, #8b4513 0%, #cd7f32 30%, #b8860b 70%, #8b4513 100%);
+    /* background: linear-gradient(45deg, #8b4513 0%, #cd7f32 30%, #b8860b 70%, #8b4513 100%); */
 }
 
 tbody tr:nth-child(1), tbody tr:nth-child(2), tbody tr:nth-child(3) {
     td:first-child {
-        -webkit-text-stroke: 4px #fff;
+        -webkit-text-stroke: 4px #43c6ac;
+        color: white;
         /* contour doré */
         font-weight: 900;
         font-size: 30px;
