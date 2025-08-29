@@ -2,7 +2,7 @@
 
 
 // Ajouter un score
-export function addScore(pseudo, score) {
+function addScore(pseudo, score) {
     db.run(`INSERT into scores (pseudo, score) VALUES (?, ?)`, [pseudo, score],
         function (err) {
             if (err) {
@@ -16,7 +16,7 @@ export function addScore(pseudo, score) {
 
 
 // Lire les meilleurs scores
-export function getScores(callback = undefined, top = 10) {
+function getScores(callback = undefined, top = 10) {
         if (!is_int(top)){
             top = 10;
         }
@@ -28,7 +28,7 @@ export function getScores(callback = undefined, top = 10) {
 
 
 // afficher les scores dans la console du serveur
-export function echoScores(rows = undefined, top = 10) {
+function echoScores(rows = undefined, top = 10) {
     if (rows== undefined) {
         getScores(echoScores,top)
         console.log(`Top ${top}:`)
@@ -52,6 +52,13 @@ function is_int(value){
 
 let db;
 
-export function setDb(database) {
+function setDb(database) {
     db = database;
 }
+
+module.exports = {
+    addScore,
+    getScores,
+    echoScores,
+    setDb
+};
