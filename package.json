@@ -15,6 +15,7 @@
   "author": "Louison Bednarowicz",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "path": "^0.12.7",
     "sqlite3": "^5.1.7"

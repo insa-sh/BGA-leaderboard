@@ -1,8 +1,28 @@
+// Variables d'authentification
+let auth_system, secretToken;
+
+function setAuthConfig(config) {
+    auth_system = config.auth_system;
+    secretToken = config.secretToken;
+}
 // fichier qui décrit la gestion des scores
 
 
 // Ajouter un score
-function addScore(pseudo, score) {
+function addScore(pseudo, score, token = undefined) {
+    if (auth_system == 0) {
+        a_les_droits = true;
+    } else if (auth_system == 1) {
+        if (token == secretToken) {
+            a_les_droits = true;
+        } else {
+            a_les_droits = false;
+        }
+    } else {
+        a_les_droits = false;
+    }
+
+    if (a_les_droits) {
     db.run(`INSERT into scores (pseudo, score) VALUES (?, ?)`, [pseudo, score],
         function (err) {
             if (err) {
@@ -12,6 +32,9 @@ function addScore(pseudo, score) {
             }
 
         });
+    } else {
+        console.log(`WARNING - Tentative d'enregistrement des scores illégale pour ${pseudo} (${score}) - token donné: ${token} !!`)
+    }
 }
 
 
@@ -59,5 +82,6 @@ module.exports = {
     addScore,
     getScores,
     echoScores,
-    setDb
+    setDb,
+    setAuthConfig
 };
