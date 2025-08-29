@@ -1,0 +1,22 @@
+{
+  "name": "bga-leaderboard",
+  "version": "1.0.0",
+  "description": "Leaderboard du jeu BGA",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "BGA",
+    "leaderboard",
+    "jeu",
+    "game"
+  ],
+  "author": "Louison Bednarowicz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "path": "^0.12.7",
+    "sqlite3": "^5.1.7"
+  }
+}
