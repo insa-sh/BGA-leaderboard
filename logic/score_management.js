@@ -20,7 +20,7 @@ function getScores(callback = undefined, top = 10) {
         if (!is_int(top)){
             top = 10;
         }
-        db.all(`SELECT pseudo, score, date FROM scores ORDER BY score ASC LIMIT ${top}`, [], (err, rows) => {
+        db.all(`SELECT pseudo, MIN(score) as score, date FROM scores GROUP BY pseudo ORDER BY score ASC LIMIT ${top}`, [], (err, rows) => {
             if (err) throw err;
             callback(rows);
         });
@@ -42,10 +42,9 @@ function echoScores(rows = undefined, top = 10) {
 // vérifier entier ou pas
 function is_int(value){
   if((parseFloat(value) == parseInt(value)) && !isNaN(value)){ 
-      console.log(`${value} est un integer`);
       return true;
   } else {
-      console.log(`${value} n\'est pas un integer`);
+      console.log(`${value} n\'est pas un entier`);
       return false;
   }
 }
