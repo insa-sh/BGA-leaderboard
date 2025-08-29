@@ -39,14 +39,17 @@ th {
 
 tbody tr:first-child {
     /* background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%); */
+    /* background: #ffed4e; */
 }
 
 tbody tr:nth-child(2) {
     /* background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 50%, #c0c0c0 100%); */
+    /* background: #e8e8e8; */
 }
 
 tbody tr:nth-child(3) {
-    /* background: linear-gradient(45deg, #8b4513 0%, #cd7f32 30%, #b8860b 70%, #8b4513 100%); */
+    /* background: linear-gradient(45deg, #e27a2f 0%, #cd7f32 30%, #b8860b 70%, #8b4513 100%); */
+    /* background: #e27a2f; */
 }
 
 tbody tr:nth-child(1), tbody tr:nth-child(2), tbody tr:nth-child(3) {
