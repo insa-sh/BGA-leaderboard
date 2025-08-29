@@ -11,6 +11,7 @@
     <table id="scores">
         <thead>
             <tr>
+                <th>Position</th>
                 <th>Pseudo</th>
                 <th>Date</th>
                 <th>Score</th>
@@ -25,8 +26,8 @@
           .then(response => response.json())
           .then(scores => {
             const tbody = document.querySelector('#scores tbody');
-            tbody.innerHTML = scores.map(s =>
-              `<tr><td>${s.pseudo}</td><td>${s.date}</td><td>${s.score}</td></tr>`
+            tbody.innerHTML = scores.map((s, index) =>
+              `<tr><td>${index + 1}</td><td>${s.pseudo}</td><td>${s.date}</td><td>${s.score}</td></tr>`
             ).join('');
           });
     </script>
