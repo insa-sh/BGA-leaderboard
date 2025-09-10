@@ -78,13 +78,11 @@ tbody tr:nth-child(3) {
 
 tbody tr:nth-child(1), tbody tr:nth-child(2), tbody tr:nth-child(3) {
     td:first-child {
-        -webkit-text-stroke: 4px #B041BA;
-        color: white;
+        color: #FAC714;
         /* contour doré */
         font-weight: 900;
-        font-size: 30px;
+        font-size: 26px;
 
-        paint-order: stroke fill;
 
     }
 }
