@@ -31,14 +31,18 @@
           const mois = ['janv', 'févr', 'mars', 'avr', 'mai', 'juin', 'juil', 'août', 'sept', 'oct', 'nov', 'déc'];
           return `${d.getDate()} ${mois[d.getMonth()]} ${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}`;
         }
-        fetch('/api/get/scores')
-          .then(response => response.json())
-          .then(scores => {
-            const tbody = document.querySelector('#scores tbody');
-            tbody.innerHTML = scores.map((s, index) =>
-              `<tr><td>${index + 1}</td><td>${s.pseudo}</td><td>${formatDate(s.date)}</td><td>${Number(s.score).toFixed(2)}s</td></tr>`
-            ).join('');
-          });
+        function updateScores() {
+          fetch('/api/get/scores')
+            .then(response => response.json())
+            .then(scores => {
+              const tbody = document.querySelector('#scores tbody');
+              tbody.innerHTML = scores.map((s, index) =>
+                `<tr><td>${index + 1}</td><td>${s.pseudo}</td><td>${formatDate(s.date)}</td><td>${Number(s.score).toFixed(2)}s</td></tr>`
+              ).join('');
+            });
+        }
+        updateScores();
+        setInterval(updateScores, 15000);
     </script>
 </body>
 </html>
