@@ -12,6 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 const sqlite3 = require('sqlite3').verbose();
 // pour lire les fichiers .env
 require('dotenv').config();
+// gestionaire de fichiers
+const fs = require('fs');
+
 
 
 const port = 2025;
@@ -66,6 +69,30 @@ app.get('/', (req, res) => {
 app.get('/css/scores.css', (req, res) => {
     res.sendFile(path.join(__dirname, '/static/scores.css'))
 })
+
+// Polices d'écriture : tous les fichiers du dossier font sont publics
+app.get('/fonts/:file', (req, res) => {
+    const fileName = req.params.file;
+    const filePath = path.join(__dirname, 'static/fonts', fileName)
+    if (fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+    } else {
+        res.status(404).send('Fichier non trouvé');
+    }
+})
+
+
+// images
+app.get('/images/:file', (req, res) => {
+    const fileName = req.params.file;
+    const filePath = path.join(__dirname, 'static/img', fileName)
+    if (fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+    } else {
+        res.status(404).send('Image non trouvée');
+    }
+})
+
 
 // Ecouter les requêtes POST sur /sendscores
 app.post("/api/send/scores", (req, res) => {

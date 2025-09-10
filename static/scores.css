@@ -1,3 +1,10 @@
+/*  polices */
+
+@font-face {
+    font-family: "Kaph";
+    src: url('/fonts/Kaph-Regular.ttf') format('truetype');
+}
+
 body {
     background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
     background-size: cover;
@@ -5,13 +12,30 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 40px;
+    background-image: url("/images/fond.png");
+    background-position: top;
+    font-family: "Kaph";
+
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #FAC714;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+    font-family: "Kaph";
+
+    
+}
+h2 {
+    text-align: center;
+    color: #B041BA;
+    margin-top: 8px;
     margin-bottom: 30px;
     letter-spacing: 2px;
+    font-family: "Kaph";
+    font-size: 40px;
+
 }
 
 table {
@@ -31,7 +55,7 @@ td {
 }
 
 th {
-    background: #43c6ac;
+    background: #B041BA;
     color: #fff;
     font-size: 1.1em;
     letter-spacing: 1px;
@@ -54,7 +78,7 @@ tbody tr:nth-child(3) {
 
 tbody tr:nth-child(1), tbody tr:nth-child(2), tbody tr:nth-child(3) {
     td:first-child {
-        -webkit-text-stroke: 4px #43c6ac;
+        -webkit-text-stroke: 4px #B041BA;
         color: white;
         /* contour doré */
         font-weight: 900;
@@ -77,6 +101,24 @@ tr:hover {
 
 td:first-child {
     font-weight: bold;
-    color: #43c6ac;
+    color: #B041BA;
     font-size: 1.2em;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+@media (max-width: 600px) {
+    table {
+        width: 100%;
+        font-size: 0.95em;
+    }
+    th, td {
+        padding: 8px 6px;
+    }
+    body {
+        padding: 10px;
+    }
 }

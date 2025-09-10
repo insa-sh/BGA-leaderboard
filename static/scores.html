@@ -4,30 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard BGA</title>
+    <meta name="description" content="Tableau des scores du jeu Barry's Great Adventure">
     <link rel="stylesheet" href="css/scores.css">
 </head>
 <body>
-    <h1>Leaderboard Barry's great adventure</h1>
-    <table id="scores">
-        <thead>
-            <tr>
-                <th>Position</th>
-                <th>Pseudo</th>
-                <th>Date</th>
-                <th>Score</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+    <h1>Leaderboard</h1>
+    <h2>Barry's great adventure</h2>
+    <div class="table-responsive">
+      <table id="scores">
+          <thead>
+              <tr>
+                  <th>Position</th>
+                  <th>Pseudo</th>
+                  <th>Date</th>
+                  <th>Temps</th>
+              </tr>
+          </thead>
+          <tbody>
+          </tbody>
+      </table>
+    </div>
 
     <script>
+        function formatDate(dateStr) {
+          const d = new Date(dateStr);
+          const mois = ['janv', 'févr', 'mars', 'avr', 'mai', 'juin', 'juil', 'août', 'sept', 'oct', 'nov', 'déc'];
+          return `${d.getDate()} ${mois[d.getMonth()]} ${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}`;
+        }
         fetch('/api/get/scores')
           .then(response => response.json())
           .then(scores => {
             const tbody = document.querySelector('#scores tbody');
             tbody.innerHTML = scores.map((s, index) =>
-              `<tr><td>${index + 1}</td><td>${s.pseudo}</td><td>${s.date}</td><td>${s.score}</td></tr>`
+              `<tr><td>${index + 1}</td><td>${s.pseudo}</td><td>${formatDate(s.date)}</td><td>${Number(s.score).toFixed(2)}s</td></tr>`
             ).join('');
           });
     </script>
