@@ -6,8 +6,6 @@ const scoreManagement = require("./logic/score_management.js");
 const express = require("express");
 const app = express();
 // extension pour parser le json
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 // base de données sqlite
 const sqlite3 = require('sqlite3').verbose();
 // pour lire les fichiers .env
@@ -24,6 +22,9 @@ const path = require("path");
 const { EMPTY } = require("sqlite3");
 const { isSet } = require("util/types");
 
+app.use(express.json());
+app.use(express.static(path.join(__dirname,'/static')))
+app.use(express.urlencoded({ extended: true }));
 // autentification
 // 0 : rien (pas safe)
 // 1 : avec code (pas safe non plus -> à utiliser pour une simple démo où le jeu n'est pas téléchargé sur des machines externes)
@@ -60,14 +61,19 @@ db.run(`
 
 // req et res correspondent à la requête et la réponse HTTP
 
-//  Page d'affichage des scores
+// Page du jeu
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/static/scores.html'));
+    res.sendFile(path.join(__dirname, '/static/index.html'));
+});
+
+//  Page d'affichage des scores
+app.get('/scoreboard', (req, res) => {
+    res.sendFile(path.join(__dirname, '/static/scoreboard/scores.html'));
 });
 
 // css files
 app.get('/css/scores.css', (req, res) => {
-    res.sendFile(path.join(__dirname, '/static/scores.css'))
+    res.sendFile(path.join(__dirname, '/static/scoreboard/scores.css'))
 })
 
 // Polices d'écriture : tous les fichiers du dossier font sont publics
